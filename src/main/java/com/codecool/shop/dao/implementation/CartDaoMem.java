@@ -58,4 +58,9 @@ public class CartDaoMem implements CartDao {
     public float getSum() {
         return sum;
     }
+
+    @Override
+    public int getNumberOfProducts() {
+        return 0;
+    }
 }
