@@ -47,8 +47,6 @@
             <div class="card mt-4">
                 <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
                 <div class="card-header">
-
-<!--                    <input type="hidden" name="prod_id" id="prod_id" />-->
                     <h4 class="card-title" th:text="${prod.name}">Product name</h4>
                     <p class="card-text" th:text="${prod.description}">Product description... </p>
                 </div>
@@ -57,10 +55,7 @@
                         <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <form action="/cart" method="post">
-                            <input type="hidden" th:value="${prod.id}" name="prod_id">
-                            <button class="btn btn-success" type="submit">Add to cart</button>
-                        </form>
+                        <form action="/cart" method="post"><input type="hidden" name="prod_id" th:value="${prod.id}"><button class="btn btn-success" type="submit">Add to cart</button></form>
                     </div>
                 </div>
             </div>

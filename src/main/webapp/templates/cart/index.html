@@ -42,10 +42,10 @@
                 <th>quantity</th>
                 <th>price</th>
             </thead>
-            <tr th:each="prod,iterStat : ${products}">
-                <td th:text="${prod.name}"></td>
-                <td> Q </td>
-                <td th:text="${prod.price}"></td>
+            <tr th:each="prod : ${products}">
+                <td th:text="${prod.key.name}"></td>
+                <td th:text="${prod.value}"></td>
+                <td th:text="${prod.key.price}"></td>
                 <td><a class="btn btn-warning" href="#">Remove</a></td>
             </tr>
         </tbody>
@@ -56,8 +56,9 @@
             <td th:text="${sum}"></td>
         </tr>
         </tfoot>
+        <p th:text="${products}"></p>
     </table>
-    <form action="/checkout" method="post"><button class="btn btn-primary mt-5" type="submit">Checkout</button></form>
+    <form action="/checkout" method="get"><button class="btn btn-primary mt-5" type="submit">Checkout</button></form>
 </div>
 
 </div>
