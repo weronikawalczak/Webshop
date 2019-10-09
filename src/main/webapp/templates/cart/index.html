@@ -34,7 +34,7 @@
     <h1>Cart</h1>
 </div>
 
-<div class="container">
+<div class="container mb-5">
     <table id="products" border="1">
         <tbody>
             <thead>
@@ -46,7 +46,7 @@
                 <td th:text="${prod.key.name}"></td>
                 <td th:text="${prod.value}"></td>
                 <td th:text="${prod.key.price}"></td>
-                <td><a class="btn btn-warning" href="#">Remove</a></td>
+                <td></tf><form action="/cart" method="post"><input type="hidden" name="prod_id" th:value="${prod.key.id}"><button class="btn btn-primary mt-5" type="submit" value="remove">Remove</button></form></td>
             </tr>
         </tbody>
         <tfoot>
@@ -56,12 +56,19 @@
             <td th:text="${sum}"></td>
         </tr>
         </tfoot>
-        <p th:text="${products}"></p>
     </table>
-    <form action="/checkout" method="get"><button class="btn btn-primary mt-5" type="submit">Checkout</button></form>
+    <form action="/checkout" method="get">
+        <span th:each="prod : ${products}">
+            <input type="hidden" th:value="${prod.key.id}" name="prod_id">
+            <input type="hidden" th:value="${prod.value}" name="prod_quantity">
+        </span>
+        <button class="btn btn-primary mt-5" type="submit">Checkout</button>
+    </form>
 </div>
 
 </div>
+
+<div class="mb-3"></div>
 
 <div th:replace="footer.html :: copy"></div>
 
