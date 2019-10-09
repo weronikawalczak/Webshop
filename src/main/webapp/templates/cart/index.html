@@ -59,8 +59,7 @@
     </table>
     <form action="/checkout" method="get">
         <span th:each="prod : ${products}">
-            <input type="hidden" th:value="${prod.key.id}" name="prod_id">
-            <input type="hidden" th:value="${prod.value}" name="prod_quantity">
+            <input type="hidden" th:name="${prod.key.id}" th:value="${prod.value}">
         </span>
         <button class="btn btn-primary mt-5" type="submit">Checkout</button>
     </form>

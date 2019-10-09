@@ -22,7 +22,7 @@ public class CheckoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
-        req.getParameterValues("products");
+        req.getParameterMap();
         WebContext context = new WebContext(req, resp, req.getServletContext());
         engine.process("cart/checkout.html", context, resp.getWriter());
         //dodac order
