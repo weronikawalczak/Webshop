@@ -26,6 +26,10 @@ public class Cart{
         }
         sum += product.getDefaultPrice();
     }
+
+    public void changeQuantity(int quantity){
+
+    }
     
     public Product find(int id) {
         for(Product product: data.keySet()){
@@ -37,7 +41,7 @@ public class Cart{
     }
     
     public void remove(int id) {
-        sum -= find(id).getDefaultPrice();
+        sum -= find(id).getDefaultPrice() * data.get(find(id));
         data.remove(find(id));
     }
 
