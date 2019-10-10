@@ -3,6 +3,7 @@ package com.codecool.shop.controller;
 import com.codecool.shop.config.TemplateEngineUtil;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Cart;
+import com.codecool.shop.model.Product;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -41,10 +42,30 @@ public class CartController extends HttpServlet {
             Integer productId = parseInt(req.getParameter("product_id"));
             cart.add(productDaoMem.find(productId));
             resp.sendRedirect("/");
-        }else if(req.getParameter("prod_id") != null){//
+        }else if(req.getParameter("prod_id") != null) {//
             //remove
             Integer prod_id = parseInt(req.getParameter("prod_id"));
             cart.remove(prod_id);
+            resp.sendRedirect("/cart");
+        }else if(req.getParameter("add") != null){
+            for(Map.Entry<Product, Integer> entry: cart.getAll().entrySet()){
+                if(entry.getKey().getId() == Integer.parseInt(req.getParameter("add"))){
+                    cart.getAll().put(entry.getKey(), entry.getValue() + 1);
+                    break;
+                }
+            }
+            resp.sendRedirect("/cart");
+        }else if(req.getParameter("subtract") != null){
+            for(Map.Entry<Product, Integer> entry: cart.getAll().entrySet()){
+                if(entry.getKey().getId() == Integer.parseInt(req.getParameter("subtract"))){
+                    if(entry.getValue() == 1){
+                        cart.remove(entry.getKey().getId());
+                    }else {
+                        cart.getAll().put(entry.getKey(), entry.getValue() - 1);
+                    }
+                    break;
+                }
+            }
             resp.sendRedirect("/cart");
         }else{
             req.getParameter("quantity");
