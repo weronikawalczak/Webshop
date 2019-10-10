@@ -36,12 +36,11 @@ public class CartController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //add
-
         if(req.getParameter("product_id") != null){
+            //add
             Integer productId = parseInt(req.getParameter("product_id"));
             cart.add(productDaoMem.find(productId));
-            resp.sendRedirect("/");
+            resp.sendRedirect("");
         }else if(req.getParameter("prod_id") != null) {//
             //remove
             Integer prod_id = parseInt(req.getParameter("prod_id"));
