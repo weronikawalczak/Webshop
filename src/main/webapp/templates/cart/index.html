@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </td>
-            <td data-th="Price" th:text="${prod.key.price}">$1.99</td>
+            <td data-th="Price" th:text="${#numbers.formatDecimal(prod.key.defaultPrice, 0, 'COMMA', 2, 'POINT') + ' ' + prod.key.getDefaultCurrency()}">$1.99</td>
             <td data-th="Quantity">
                 <form action="/cart" method="post"><input type="number" name="quantity" class="form-control text-center" th:placeholder="${prod.value}"></form>
             </td>
