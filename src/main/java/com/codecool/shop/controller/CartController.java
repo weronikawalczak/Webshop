@@ -29,8 +29,7 @@ public class CartController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         context.setVariable("products", cart.getAll());
-        DecimalFormat df = new DecimalFormat("#.##");
-        context.setVariable("sum", df.format(cart.getSum()));
+        context.setVariable("sum", cart.getSum());
         engine.process("cart/index.html", context, resp.getWriter());
     }
 
