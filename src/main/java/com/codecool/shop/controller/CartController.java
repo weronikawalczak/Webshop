@@ -49,7 +49,7 @@ public class CartController extends HttpServlet {
         }else if(req.getParameter("add") != null){
             for(Map.Entry<Product, Integer> entry: cart.getAll().entrySet()){
                 if(entry.getKey().getId() == Integer.parseInt(req.getParameter("add"))){
-                    cart.getAll().put(entry.getKey(), entry.getValue() + 1);
+                    cart.add(entry.getKey());
                     break;
                 }
             }
@@ -57,11 +57,7 @@ public class CartController extends HttpServlet {
         }else if(req.getParameter("subtract") != null){
             for(Map.Entry<Product, Integer> entry: cart.getAll().entrySet()){
                 if(entry.getKey().getId() == Integer.parseInt(req.getParameter("subtract"))){
-                    if(entry.getValue() == 1){
-                        cart.remove(entry.getKey().getId());
-                    }else {
-                        cart.getAll().put(entry.getKey(), entry.getValue() - 1);
-                    }
+                    cart.subtract(entry.getKey());
                     break;
                 }
             }
