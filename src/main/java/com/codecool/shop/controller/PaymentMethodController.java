@@ -37,5 +37,4 @@ public class PaymentMethodController extends HttpServlet {
             engine.process("cart/creditCard.html", context, resp.getWriter());
         }
     }
-    //ZROB TU Z PAWLEM POZNIEJ ERRROR HANDLING!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

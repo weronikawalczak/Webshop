@@ -22,7 +22,7 @@ public class ConfirmationController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int probabilityOfWrongPayment = 30;
+        int probabilityOfWrongPayment = 10;
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
@@ -30,7 +30,6 @@ public class ConfirmationController extends HttpServlet {
         if (Util.generateNumber() < probabilityOfWrongPayment) {
             context.setVariable("result", "Payment confirmed!");
             context.setVariable("orderInfo", "details of the Order");
-            // w tym momecie sie zapisuje order i user?
         } else {
             context.setVariable("result", "Some problem with payment!");
             context.setVariable("errorInfo", "the details of the error");

@@ -52,11 +52,6 @@ public class ProductController extends HttpServlet {
         engine.process("product/index.html", context, resp.getWriter());
     }
 
-    // // Alternative setting of the template context
-    // Map<String, Object> params = new HashMap<>();
-    // params.put("category", productCategoryDataStore.find(1));
-    // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
-    // context.setVariables(params);
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         this.selectedCategory = req.getParameter("selected_category");
@@ -82,14 +77,15 @@ public class ProductController extends HttpServlet {
         }
         return false;
     }
+
     private int getFirstInt(String text){
         Matcher matcher = Pattern.compile("\\d+").matcher(text);
         matcher.find();
         int i = Integer.parseInt(matcher.group());
         return i;
     }
+
     public String sendCategory(String category){
         return category;
     }
-
 }
