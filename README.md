@@ -1,6 +1,5 @@
-# Online Shop
-
-An online eCommerce web-application with Java, where users can browse products, add them into a shopping cart, checkout items and make payments. 
+# Webshop - Online shop
+An online eCommerce web-application written in Java, where users can browse products, add them into a shopping cart, proceed to checkout and perform mocked payments. 
 
 ## Table of contents
 * [General info](#general-info)
@@ -12,9 +11,8 @@ An online eCommerce web-application with Java, where users can browse products, 
 
 ## General info
 Webshop:
-* Shows the main page with all kind off products
+* Shows the main page with all kinds off products
 * Gives the possibility to filter products by product category and supplier
-* Displays form to register or login
 * Displays cart with products
 * Mocks the process of confirmation, checkout and payment
 
@@ -25,9 +23,9 @@ Webshop:
 * PostgreSQL
 
 ## Setup
-
-Import this project to IntelliJ as a Maven project.
-IntelliJ can auto-install the dependencies based on the pom.xml
+1. Download this project
+2. Build with Maven
+3. Deploy built war file on server like Tomcat or similar 
 
 ## Screenshots
 
