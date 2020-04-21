@@ -28,7 +28,7 @@ Webshop:
 3. Deploy built war file on server like Tomcat or similar 
 
 ## Screenshots
-
+![Example screenshot](./screenshots/mainPage.png)
 
 ## Status
 Project is finished.
