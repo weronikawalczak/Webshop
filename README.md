@@ -20,7 +20,6 @@ Webshop:
 * Java Servlets
 * Thymeleaf
 * HTML, CSS, Bootstrap
-* PostgreSQL
 
 ## Setup
 1. Download this project
